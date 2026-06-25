@@ -25,9 +25,7 @@ console.log("content.js is running");
   });
 
   return arr;
-
 }
-
 
 function calculateGPA(courses){
   let totalGrade = 0;
@@ -35,12 +33,16 @@ function calculateGPA(courses){
   const POINTS = {
     "A+" : 4.0,
     "A" : 3.7,
-    "B+" : 3.3,
+    "A-" : 3.4,
+    "B+" : 3.2,
     "B" : 3.0,
-    "C+" : 2.7,
+    "B-" : 2.8,
+    "C+" : 2.6,
     "C" : 2.4,
-    "D+" : 2.2,
-    "D" : 2.0,
+    "C-" : 2.2,
+    "D+" : 2.0,
+    "D" : 1.5,
+    "D-" : 1.0,
     "F" : 0,
   }
   courses.forEach(course => {
@@ -58,17 +60,9 @@ function calculateGPA(courses){
     return 0;
 }
 
-
-
-
-
-
-
-
 function sendGpaToWorker(gpa){
   chrome.runtime.sendMessage({ from: 'content', to: 'popup', gpa })
 }
-
 
 function checkURL(){
   const url = window.location.href;
@@ -86,7 +80,6 @@ function checkURL(){
   return false;
 }
 
-
 function main(){
   
   const tables = document.querySelectorAll('table')
@@ -97,7 +90,6 @@ function main(){
     const gpa = calculateGPA(courses);
     sendGpaToWorker(gpa);
   }
-  
 }
 
 const observer = new MutationObserver(main); 
