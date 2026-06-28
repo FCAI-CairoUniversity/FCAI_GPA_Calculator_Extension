@@ -117,7 +117,7 @@ function calculateGPA(fields) {
 
       if (points == 0) {
         failed_courses.push({
-          hourse: course_hours,
+          hours: course_hours,
           points: points,
           code: course_code,
         });
@@ -133,27 +133,28 @@ function calculateGPA(fields) {
         totalGrade += points * course_hours;
         // console.log(`${course.hours} ${course.grade}`);
         totalHour += course_hours;
-        console.log(` ${course_name} =  ${points} * ${course_hours} `);
-        console.log(`currentGPA :${totalGrade / totalHour}`);
+        console.log(`${course_name} = ${points} * ${course_hours}`);
+        console.log(`\tCurrent GPA: ${totalGrade / totalHour}`);
       }
     }
   });
 
   // add the failed not retaken courses
   failed_courses.forEach((course) => {
-    totalHour += course.hourse;
+    totalHour += course.hours;
     console.log(
-      `failed course ${course.code} ${course.hourse} ${course.points}`
+      `failed course ${course.code} ${course.hours} ${course.points}`
     );
   });
 
   let gpa = totalGrade / totalHour;
-  gpa = gpa.toFixed(2);
-  console.log(`total_points : ${totalGrade} , total_hours : ${totalHour}`);
-  console.log(`GPA : ${gpa}`);
+  gpa = Math.floor(gpa * 100) / 100; // floor to 2 decimal places
+  
+  console.log(`Total Points: ${totalGrade}, Total Hours: ${totalHour}`);
+  console.log(`GPA: ${totalGrade / totalHour}`);
+  console.log(`GPA After Flooring: ${gpa}`);
   if (totalHour !== 0)
-    // division by zero
-    return gpa;
+    return gpa;  // division by zero
   else return 0;
 }
 

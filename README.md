@@ -4,18 +4,19 @@ A chrome Extension to calculate the GPA from the FCAI website
 
 
 # SETUP
-## 1. clone the repo to a directory of your liking
+## 1. Clone the repo to a directory of your liking
 ```
 git clone https://github.com/FCAI-CairoUniversity/FCAI_GPA_Calculator_Extension.git
 ```
+
 ## 2. Enable developer mode
-* Option 1: type chrome://extensions in the url bar and press enter.
-* Option 2: click on the tree dots in the top right of the browser, then click "More tools" then click "Extensions".
+* **Option 1:** type `chrome://extensions` in the url bar and press enter.
+* **Option 2:** click on the tree dots in the top right of the browser, then click "More tools" then click "Extensions".
 * ![image](https://github.com/user-attachments/assets/747fb632-a88f-4aca-985f-698772df75bd)
 
-## 3. load unpacked extension
+## 3. Load unpacked extension
 Click on the button on the top left of the page that says "Load unpacked".
-Then select the folder you cloned (the folder contains the manifest.json file.).
+Then select the folder you cloned (the folder contains the `manifest.json` file.).
 
 # GPA Calculation
 | Grade| Points  |
